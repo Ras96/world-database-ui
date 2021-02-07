@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import Axios from "../views/Axios.vue";
 import Login from "../views/Login.vue";
 import City from "../views/City.vue";
+import Country from "../views/Country.vue";
+import CitiesOfCountry from "../views/CitiesOfCountry.vue";
 import axios from "axios";
 
 Vue.use(VueRouter);
@@ -37,6 +39,16 @@ const routes = [
     path: "/city/:cityName",
     name: "City",
     component: City
+  },
+  {
+    path: "/country",
+    name: "Country",
+    component: Country
+  },
+  {
+    path: "/country/:countryName",
+    name: "CitiesOfCountry",
+    component: CitiesOfCountry
   },
   {
     path: "/about",
