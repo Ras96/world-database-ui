@@ -7,6 +7,8 @@
     </div>
     <div>
       <button @click="login">login</button>
+      <div v-if="success">ログインに成功しました</div>
+      <div v-else>ログインしていません</div>
     </div>
   </div>
 </template>
@@ -18,15 +20,20 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      success: null
     };
   },
   methods: {
     login() {
-      axios.post("/api/login", {
-        username: this.username,
-        password: this.password
-      });
+      axios
+        .post("/api/login", {
+          username: this.username,
+          password: this.password
+        })
+        .then(() => {
+          this.success = true;
+        });
     }
   }
 };
